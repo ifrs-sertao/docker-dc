@@ -14,17 +14,17 @@ that promotes the container on startup using the supplied variables.
 Build
 -----
 
-.. code:: bash
+```shell
   
   $ sudo docker build -t samba4/dc .
-
+```
 
 Run
 ---
 No exemplo **SAMBA_REALM=EXAMPLE.ORG**, **SAMBA_DOMAIN=example** e **SAMBA_HOST_NAME=dc**. Outras variáveis ambiente e portas podem ser customizadas.
 
 ```shell
-sudo docker run --privileged --name dc --rm -d -e SAMBA_DOMAIN=example -e SAMBA_HOST_NAME=dc -e SAMBA_ADMINPASS=Abc123! -e SAMBA_KRBTGTPASS=Abc123! -e SAMBA_REALM=EXAMPLE.ORG -p 2222:22 -p 5353:53 -p 88:88 -p 135:135 -p 139:139 -p 389:389   -p 445:445 -p 464:464 -p 636:636 -p 1024:1024 -p 3268:3268 -p 3269:3269 xnandersson/dc /usr/local/bin/dcpromo.py
+sudo docker run --privileged --name dc --rm -d -e SAMBA_DOMAIN=example -e SAMBA_HOST_NAME=dc -e SAMBA_ADMINPASS=Abc123! -e SAMBA_KRBTGTPASS=Abc123! -e SAMBA_REALM=EXAMPLE.ORG -p 2222:22 -p 5353:53 -p 88:88 -p 135:135 -p 139:139 -p 389:389   -p 445:445 -p 464:464 -p 636:636 -p 1024:1024 -p 3268:3268 -p 3269:3269 samba4/dc /usr/local/bin/dcpromo.py
 ```
 
 Administer
